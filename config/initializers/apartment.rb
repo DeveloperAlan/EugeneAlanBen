@@ -19,6 +19,7 @@ Apartment.configure do |config|
   #
   config.excluded_models = %w{Account}
   config.tenant_names = -> { Account.pluck(:subdomain) }
+  # config.tenant_names = ['golf', 'alan']
   
 
   # use postgres schemas?
@@ -36,6 +37,9 @@ Apartment.configure do |config|
 
   # supply list of database names for migrations to run on
   # config.tenant_names = lambda{ ToDo_Tenant_Or_User_Model.pluck :database }
+
+  # Seeds after Creating
+  config.seed_after_create = true
 end
 
 ##
@@ -47,4 +51,4 @@ end
 
 # Rails.application.config.middleware.use 'Apartment::Elevators::Domain'
 
-Rails.application.config.middleware.use 'Apartment::Elevators::Subdomain'
+# Rails.application.config.middleware.use 'Apartment::Elevators::Subdomain'

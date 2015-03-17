@@ -2,7 +2,6 @@
 
     <% if @projects.count == 0 %>
 
-
         <ul class="list-group">
           <li class="list-group-item">No entries yet!</li>
         </ul>
@@ -13,7 +12,7 @@
     <% @projects.each do |project| %>
         <h3>
           <%= project.name %>
-          <small><%= project.client %></small>
+          <small><%= project.subtitle %></small>
           <div class="pull-right">
             <%= link_to edit_project_path(project), class: "icon-link" do %>
               <small><i class="glyphicon glyphicon-cog"></i></small>
@@ -21,6 +20,9 @@
             <small><i class="glyphicon glyphicon-plus-sign"></i></small>
           </div>
         </h3>
+        <p>
+          <%= project.description %>
+        </p>
     <% end %>
 
     <% end %>

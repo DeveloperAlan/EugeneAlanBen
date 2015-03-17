@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
-    validates :name, presence: true, uniqueness: true
-    validates :client, presence: true
+    belongs_to :account
+    has_many :lessons
 
+    validates :name, presence: true, uniqueness: true
+    validates :subtitle, presence: true
+    validates :description, presence: true
 end
